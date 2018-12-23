@@ -73,7 +73,7 @@ def getRawDataByCity8090Url(inputFile, outputFile, primaryTitle, secondaryTitle)
 
 		for i in range(len(lines)):
 
-			if i % 100 == 0 and i != 0:
+			if i % 1000 == 0 and i != 0:
 				time.sleep(10)
 
 			lines[i] = lines[i].strip('\n')
@@ -528,7 +528,7 @@ if __name__ == '__main__':
 
 		getDataListByBaiduUrl("data_save.txt", keyword, pageMax)
 		getRawDataByBaiduUrl("data_save.txt", "data_detail000.txt", primaryTitle, secondaryTitle)
-		getDetailData(sourceWeb,"data_detail000.txt", finalName)
+		getDetailData(sourceWeb, "data_detail000.txt", finalName)
 	elif "City8090" in sourceWeb:
 		url = 'http://life.city8090.com/shenzhen/' + changeName + '/more'
 		finalName = "data_detail_City8090_" + changeName + "(" + timestamp + ").txt"
@@ -536,3 +536,5 @@ if __name__ == '__main__':
 		getDataListByCity8090Url("data_save.txt", url)
 		getRawDataByCity8090Url("data_save.txt", "data_detail.txt", primaryTitle, secondaryTitle)
 		getDetailData(sourceWeb, "data_detail.txt", finalName)
+
+
